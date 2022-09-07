@@ -38,6 +38,7 @@
         <module>trainingplugin</module>
         <module>graphql-providers</module>
         <module>graphql-providers-feature</module>
+        <module>poc-test</module>
     </modules>
 
 </project>
