@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "id": "smp:customList",
+    "name": "Custom List",
+    "description": "Add items to custom list"
+  },
+  "raiseEventOnlyOnceForSession": false,
+  "condition": {
+    "type": "eventTypeCondition",
+    "parameterValues": {
+      "eventTypeId": "customViewEvent"
+    }
+  },
+  "actions": [
+    {
+      "type": "customListAction",
+      "parameterValues": {}
+    }
+  ]
+}

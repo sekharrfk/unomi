@@ -15,23 +15,20 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>unomi-root</artifactId>
-        <groupId>org.apache.unomi</groupId>
-        <version>1.6.2-SNAPSHOT</version>
-    </parent>
-    <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>samples</artifactId>
-    <name>Apache Unomi :: Samples</name>
-    <packaging>pom</packaging>
-    <modules>
-        <module>tweet-button-plugin</module>
-        <module>login-integration</module>
-        <module>groovy-actions</module>
-        <module>trainingplugin</module>
-        <module>poc-test</module>
-    </modules>
+<blueprint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
 
-</project>
+    <reference id="profileService" interface="org.apache.unomi.api.services.ProfileService"/>
+
+    <!-- Action executor -->
+    <service id="customListAction" interface="org.apache.unomi.api.actions.ActionExecutor">
+        <service-properties>
+            <entry key="actionExecutorId" value="customList"/>
+        </service-properties>
+        <bean class="org.apache.unomi.samples.poc_test.actions.CustomListAction">
+            <property name="profileService" ref="profileService"/>
+        </bean>
+    </service>
+</blueprint>

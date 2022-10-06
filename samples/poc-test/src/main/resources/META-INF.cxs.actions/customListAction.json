@@ -1,0 +1,14 @@
+{
+  "metadata": {
+    "id": "customListAction",
+    "name": "customListAction",
+    "description": "",
+    "systemTags": [
+      "profileTags",
+      "event"
+    ],
+    "readOnly": true
+  },
+  "actionExecutor": "customList",
+  "parameters": []
+}
